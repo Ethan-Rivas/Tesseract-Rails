@@ -32,3 +32,4 @@
 
 # Ignore local uploaded photos
 /public/system/photos
+/public/documents

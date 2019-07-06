@@ -36,7 +36,7 @@ class PhotosController < ApplicationController
   private
   # Permitted parameters when creating a photo. This is used for security reasons.
   def photo_params
-    params.require(:photo).permit(:title, :image)
+    params.require(:photo).permit(:title, :image, :document_path)
   end
 
 end

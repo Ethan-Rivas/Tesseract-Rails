@@ -1,15 +1,39 @@
-<div class="page-header"><h1>Photos</h1></div>
+<div class="container top-margin">
 
-<div class="media">
-  <% @photos.each do |photo| %>
-    <div class="media-left">
-      <!-- Renders image -->
-      <%= link_to image_tag(photo.image.url, class: 'media-object'), photo.image.url, target: '_blank' %>
-      <!-- Button to delete image -->
-      <%= link_to 'Remove', photo_path(photo), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %>
+  <div class="text-center page-header">
+    <h1 >List of Files</h1>
+
+    <div class="page-actions">
+      <%= link_to 'Add File', new_photo_path, class: 'btn btn-primary' %>
     </div>
-    <div class="media-body">
-      <h4 class="media-heading"><%= photo.title %></h4>
-    </div>
-  <% end %>
+  </div>
+
+  <br> <br>
+
+  <div class="media">
+    <table class="table">
+      <thead>
+        <tr class="text-center">
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Photo</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @photos.each do |photo| %>
+          <tr class="text-center">
+            <th scope="row"><%= photo.id %></th>
+            <td><%= photo.title %></td>
+            <td><%= link_to image_tag(photo.image.url, class: 'media-object'), photo.image.url, target: '_blank' %></td>
+            <td>
+                <%= link_to 'View PDF', photo.document_path, class: 'btn btn-primary', target: '_blank' %>
+                <%= link_to 'Remove', photo_path(photo), class: 'btn btn-danger', method: :delete, data: {confirm: 'Are you sure?'} %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
 </div>
