@@ -14,6 +14,9 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
     if @photo.save
+      @photo.generate_pdf
+      @photo.generate_text
+      
       flash[:notice] = "Successfully added new photo!"
       redirect_to root_path
     else

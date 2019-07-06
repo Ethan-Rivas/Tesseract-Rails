@@ -29,4 +29,20 @@ class Photo < ApplicationRecord
     self.update_attribute(:document_path, pdf_path)
     self.update_attribute(:title, file_base_name)
   end
+
+  def generate_text
+    docs_folder = Dir.pwd + "/public/documents"
+    file_base_name = File.basename(self.image.url, File.extname(self.image.url))
+
+    # Tesseract will try to find this path outside your project
+    # Using the current project location and passing the public folder will fix this "issue"
+    image = RTesseract.new(Dir.pwd + "/public" + self.image.url)
+    converted_img = image.to_s # Convert image to TEXT string
+
+    # To have a reference of what text file belongs to a photo
+    # Save the text path to it
+    path_name = "#{docs_folder}/#{file_base_name}.txt"
+    File.open(path_name, 'w') { |f| f.write(converted_img) }
+    self.update_attribute(:text_path, "/documents/#{file_base_name}.txt")
+  end
 end
