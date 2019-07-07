@@ -7,7 +7,7 @@
     <% if @photo.errors.any? %>
       <div id="error_explanation">
         <h2>
-          <%= "#{pluralize(@photo.errors.count, "error")} prohibited this photo from being saved:" %>
+          <%= "#{pluralize@photo.errors.count, "error"} prohibited this photo from being saved:" %>
         </h2>
         <ul>
           <% @photo.errors.full_messages.each do |msg| %>
@@ -20,8 +20,129 @@
     <% end %>
 
     <div class="text-center">
-      <div class="form-group image-area">
+      <div class="image-area">
         <%= f.file_field :image %>
+
+        <br> <br>
+
+        <select name="language">
+          <option value="afr"> Afrikaans </option>
+          <option value="amh"> Amharic </option>
+          <option value="ara"> Arabic </option>
+          <option value="asm"> Assamese </option>
+          <option value="aze"> Azerbaijani </option>
+          <option value="aze_cyrl"> Azerbaijani - Cyrilic </option>
+          <option value="bel"> Belarusian </option>
+          <option value="ben"> Bengali </option>
+          <option value="bod"> Tibetan </option>
+          <option value="bos"> Bosnian </option>
+          <option value="bre"> Breton </option>
+          <option value="bul"> Bulgarian </option>
+          <option value="cat"> Catalan; Valencian </option>
+          <option value="ceb"> Cebuano </option>
+          <option value="ces"> Czech </option>
+          <option value="chi_sim"> Chinese simplified </option>
+          <option value="chi_tra"> Chinese traditional </option>
+          <option value="chr"> Cherokee
+          <option value="cym"> Welsh </option>
+          <option value="dan"> Danish </option>
+          <option value="deu"> German </option>
+          <option value="dzo"> Dzongkha
+          <option value="ell"> Greek, Modern, 1453- </option>
+          <option value="eng"> English </option>
+          <option value="enm"> English, Middle, 1100-1500 </option>
+          <option value="epo"> Esperanto </option>
+          <option value="equ"> Math / equation detection module </option>
+          <option value="est"> Estonian </option>
+          <option value="eus"> Basque </option>
+          <option value="fas"> Persian </option>
+          <option value="fin"> Finnish </option>
+          <option value="fra"> French </option>
+          <option value="frk"> Frankish </option>
+          <option value="frm"> French, Middle, ca.1400-1600 </option>
+          <option value="gle"> Irish </option>
+          <option value="glg"> Galician </option>
+          <option value="grc"> Greek, Ancient, to 1453 </option>
+          <option value="guj"> Gujarati </option>
+          <option value="hat"> Haitian; Haitian Creole </option>
+          <option value="heb"> Hebrew </option>
+          <option value="hin"> Hindi </option>
+          <option value="hrv"> Croatian </option>
+          <option value="hun"> Hungarian </option>
+          <option value="iku"> Inuktitut </option>
+          <option value="ind"> Indonesian </option>
+          <option value="isl"> Icelandic </option>
+          <option value="ita"> Italian </option>
+          <option value="ita_old"> Italian - Old </option>
+          <option value="jav"> Javanese </option>
+          <option value="jpn"> Japanese </option>
+          <option value="kan"> Kannada </option>
+          <option value="kat"> Georgian </option>
+          <option value="kat_old"> Georgian - Old </option>
+          <option value="kaz"> Kazakh </option>
+          <option value="khm"> Central Khmer </option>
+          <option value="kir"> Kirghiz; Kyrgyz </option>
+          <option value="kmr"> Kurdish Kurmanji </option>
+          <option value="kor"> Korean </option>
+          <option value="kor_vert"> Korean vertical </option>
+          <option value="kur"> Kurdish </option>
+          <option value="lao"> Lao </option>
+          <option value="lat"> Latin </option>
+          <option value="lav"> Latvian </option>
+          <option value="lit"> Lithuanian </option>
+          <option value="ltz"> Luxembourgish </option>
+          <option value="mal"> Malayalam </option>
+          <option value="mar"> Marathi </option>
+          <option value="mkd"> Macedonian </option>
+          <option value="mlt"> Maltese </option>
+          <option value="mon"> Mongolian </option>
+          <option value="mri"> Maori </option>
+          <option value="msa"> Malay </option>
+          <option value="mya"> Burmese </option>
+          <option value="nep"> Nepali </option>
+          <option value="nld"> Dutch; Flemish </option>
+          <option value="nor"> Norwegian </option>
+          <option value="oci"> Occitan post 1500 </option>
+          <option value="ori"> Oriya </option>
+          <option value="osd"> Orientation and script detection module </option>
+          <option value="pan"> Panjabi; Punjabi </option>
+          <option value="pol"> Polish </option>
+          <option value="por"> Portuguese </option>
+          <option value="pus"> Pushto; Pashto </option>
+          <option value="que"> Quechua </option>
+          <option value="ron"> Romanian; Moldavian; Moldovan </option>
+          <option value="rus"> Russian </option>
+          <option value="san"> Sanskrit </option>
+          <option value="sin"> Sinhala; Sinhalese </option>
+          <option value="slk"> Slovak </option>
+          <option value="slv"> Slovenian </option>
+          <option value="snd"> Sindhi </option>
+          <option value="spa"> Spanish; Castilian </option>
+          <option value="spa_old"> Spanish; Castilian - Old </option>
+          <option value="sqi"> Albanian </option>
+          <option value="srp"> Serbian </option>
+          <option value="srp_latn"> Serbian - Latin </option>
+          <option value="sun"> Sundanese </option>
+          <option value="swa"> Swahili </option>
+          <option value="swe"> Swedish </option>
+          <option value="syr"> Syriac </option>
+          <option value="tam"> Tamil </option>
+          <option value="tat"> Tatar </option>
+          <option value="tel"> Telugu </option>
+          <option value="tgk"> Tajik </option>
+          <option value="tgl"> Tagalog </option>
+          <option value="tha"> Thai </option>
+          <option value="tir"> Tigrinya </option>
+          <option value="ton"> Tonga </option>
+          <option value="tur"> Turkish </option>
+          <option value="uig"> Uighur; Uyghur </option>
+          <option value="ukr"> Ukrainian </option>
+          <option value="urd"> Urdu, uzb Uzbek </option>
+          <option value="uzb_cyrl"> Uzbek - Cyrilic </option>
+          <option value="vie"> Vietnamese </option>
+          <option value="yid"> Yiddish </option>
+          <option value="yor"> Yoruba </option>
+        </select>
       </div>
 
       <div class="form-group">

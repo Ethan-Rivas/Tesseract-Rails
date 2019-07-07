@@ -15,8 +15,10 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
 
     if @photo.save
-      @photo.generate_pdf
-      @photo.generate_text
+      lang = params["language"]
+      
+      @photo.generate_pdf(lang)
+      @photo.generate_text(lang)
 
       flash[:notice] = "Successfully added new photo!"
       redirect_to root_path
