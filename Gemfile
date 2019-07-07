@@ -33,6 +33,8 @@ gem 'rtesseract'
 # Import Paperclip to upload images
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 
+gem 'loading_screen', git: "https://github.com/Mujadded/loading_screen.git"
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

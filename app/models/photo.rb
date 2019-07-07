@@ -6,6 +6,8 @@ class Photo < ApplicationRecord
    #This validates the type of file uploaded. According to this, only images are allowed.
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
+  before_destroy :delete_files
+
   def generate_pdf
     docs_folder = Dir.pwd + "/public/documents"
     file_base_name = File.basename(self.image.url, File.extname(self.image.url))
@@ -44,5 +46,10 @@ class Photo < ApplicationRecord
     path_name = "#{docs_folder}/#{file_base_name}.txt"
     File.open(path_name, 'w') { |f| f.write(converted_img) }
     self.update_attribute(:text_path, "/documents/#{file_base_name}.txt")
+  end
+
+  def delete_files
+    File.delete(Dir.pwd + "/public" + self.document_path) # Destroy PDF File
+    File.delete(Dir.pwd + "/public" + self.text_path) # Destroy TXT FIle
   end
 end
