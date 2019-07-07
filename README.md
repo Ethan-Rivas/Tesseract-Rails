@@ -62,7 +62,7 @@ http://localhost:3000
 
 ### Routes and Information
 
-- /photos -> List of photos with buttons to watch PDF or TXT files.
+- /photos -> List of photos with buttons to view PDF or TXT files.
 - /photos/new -> Upload an image to the system and generates a PDF and TXT file and relates them with the image. 
 
 ```
